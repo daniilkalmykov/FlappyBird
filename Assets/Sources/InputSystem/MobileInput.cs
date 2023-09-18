@@ -1,5 +1,7 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
+[assembly: InternalsVisibleTo("Assembly-Csharp")]
 namespace Sources.InputSystem
 {
     internal sealed class MobileInput : IInput

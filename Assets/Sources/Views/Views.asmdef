@@ -1,4 +1,4 @@
 {
-  "name": "BirdView",
+  "name": "Views",
   "references":[ "GUID:a277fc5f354844ec91ada62005a882d7", "GUID:76226dea5a5b4078ab5e4f4417e46e04" ]
 }
