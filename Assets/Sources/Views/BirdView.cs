@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
+using Sources.HealthSystem;
 using Sources.InputSystem;
 using Sources.MovementSystem;
 using UnityEngine;
@@ -18,6 +19,12 @@ namespace Sources.Views
         private IInput _input;
         private IMovable _movable;
         private Rigidbody2D _rigidbody;
+        private IHealth _health;
+
+        private void OnDisable()
+        {
+            _health.Died -= OnDied;
+        }
 
         private void Update()
         {
@@ -30,15 +37,23 @@ namespace Sources.Views
                 MoveDown();
         }
 
-        public void Init(IInput input, IMovable movable, Rigidbody2D currentRigidbody)
+        public void Init(IInput input, IMovable movable, Rigidbody2D currentRigidbody, IHealth health)
         {
             _input = input ?? throw new ArgumentNullException();
             _movable = movable ?? throw new ArgumentNullException();
+            _health = health ?? throw new ArgumentNullException();
 
             _rigidbody = currentRigidbody;
             
             _minRotation = Quaternion.Euler(0, 0, _minRotationZ);
             _maxRotation = Quaternion.Euler(0, 0, _maxRotationZ);
+
+            _health.Died += OnDied;
+        }
+
+        private void OnDied()
+        {
+            gameObject.SetActive(false);
         }
 
         private void MoveUp()
