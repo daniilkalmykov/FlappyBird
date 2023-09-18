@@ -32,6 +32,7 @@ namespace Sources.GeneratorsSystem.PipesGenerator
 
             var position = transform.position;
             var spawnYPosition = Random.Range(_minSpawnYPosition, _maxSpawnYPosition);
+            
             var spawnPoint = new Vector3(position.x, spawnYPosition, position.z);
                     
             pipe.transform.position = spawnPoint;
