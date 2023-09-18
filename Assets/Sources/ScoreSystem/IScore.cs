@@ -1,7 +1,11 @@
+using System;
+
 namespace Sources.ScoreSystem
 {
     public interface IScore
     {
-        float PointsCount { get; }
+        event Action PointsChanged;
+        
+        int PointsCount { get; }
     }
 }

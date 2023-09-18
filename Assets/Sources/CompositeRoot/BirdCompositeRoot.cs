@@ -1,6 +1,7 @@
 using Sources.HealthSystem;
 using Sources.InputSystem;
 using Sources.MovementSystem;
+using Sources.ScoreSystem;
 using Sources.Views;
 using UnityEngine;
 
@@ -18,6 +19,9 @@ namespace Sources.CompositeRoot
         private BirdView _birdView;
         private Rigidbody2D _rigidbody;
         private Health _health;
+        private Score _score;
+
+        public IScore Score => _score;
 
         private void Update()
         {
@@ -29,11 +33,17 @@ namespace Sources.CompositeRoot
             _health.Die();
         }
 
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            _score.Increase();
+        }
+
         public override void Compose()
         {
             _movement = new Movement(_speed, _jumpSpeed);
             _mobileInput = new MobileInput();
             _health = new Health();
+            _score = new Score();
             
             _birdView = GetComponent<BirdView>();
             _rigidbody = GetComponent<Rigidbody2D>();
