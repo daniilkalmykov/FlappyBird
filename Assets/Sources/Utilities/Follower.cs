@@ -8,34 +8,45 @@ namespace Sources.Utilities
         [SerializeField] private Transform _target;
         [SerializeField] private Coordinate _coordinate;
         
-        private void Update()
+        private Vector3 _position;
+        private Vector3 _offence;
+
+        private void Start()
         {
-            transform.position = GetNewPosition();
+            var targetPosition = _target.position;
+            
+            _offence = new Vector3(_position.x - targetPosition.x, _position.y - targetPosition.y, _position.z - targetPosition.z);
         }
 
-        private Vector3 GetNewPosition()
+        private void Update()
         {
-            var position = transform.position;
+            SetPosition();
+            
+            transform.position = _position;
+        }
+
+        private void SetPosition()
+        {
+            _position = transform.position;
             
             switch (_coordinate)
             {
                 case Coordinate.X:
-                    position.x = _target.position.x;
+                    _position.x = _target.position.x + _offence.x;
                     break;
 
                 case Coordinate.Y:
-                    position.y = _target.position.y;
+                    _position.y = _target.position.y +  + _offence.y;
                     break;
 
                 case Coordinate.Both:
-                    position = _target.position;
+                    var targetPosition = _target.position;
+                    _position = new Vector3(targetPosition.x + _offence.x, targetPosition.y +  + _offence.y, targetPosition.z +  + _offence.z);
                     break;
 
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-
-            return position;
         }
     }
 
