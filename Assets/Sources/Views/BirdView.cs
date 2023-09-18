@@ -21,7 +21,7 @@ namespace Sources.Views
 
         private void Update()
         {
-            if (_movable == null || _input == null || _rigidbody == null)
+            if (_movable == null || _input == null)
                 return;
 
             if (_input.IsJumpButtonClicked)
@@ -35,8 +35,7 @@ namespace Sources.Views
             _input = input ?? throw new ArgumentNullException();
             _movable = movable ?? throw new ArgumentNullException();
 
-            if (currentRigidbody == null)
-                _rigidbody = currentRigidbody;
+            _rigidbody = currentRigidbody;
             
             _minRotation = Quaternion.Euler(0, 0, _minRotationZ);
             _maxRotation = Quaternion.Euler(0, 0, _maxRotationZ);
