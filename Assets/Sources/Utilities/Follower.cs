@@ -41,7 +41,8 @@ namespace Sources.Utilities
 
                 case Coordinate.Both:
                     var targetPosition = _target.position;
-                    _position = new Vector3(targetPosition.x + _offence.x, targetPosition.y +  + _offence.y, targetPosition.z +  + _offence.z);
+                    _position = new Vector3(targetPosition.x + _offence.x, targetPosition.y + +_offence.y,
+                        targetPosition.z + +_offence.z);
                     break;
 
                 default:
