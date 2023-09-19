@@ -11,9 +11,14 @@ namespace Sources.LevelSettings
         {
             var levelSetting = PlayerData.PlayerData.GetLevelSettings();
 
-            var setting = levelSettings.FirstOrDefault(foundSetting =>
+            var settings = levelSettings as LevelSettings[] ?? levelSettings.ToArray();
+            
+            var setting = settings.FirstOrDefault(foundSetting =>
                 string.Equals(foundSetting.Difficulty.ToString(), levelSetting));
 
+            if (setting == null)
+                setting = settings.FirstOrDefault(easySettings => easySettings.Difficulty == Difficulty.Easy);
+            
             return setting;
         }
     }
