@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using UnityEngine;
 
 [assembly: InternalsVisibleTo("Assembly-Csharp")]
 namespace Sources.LevelSettings
@@ -15,8 +14,6 @@ namespace Sources.LevelSettings
             var setting = levelSettings.FirstOrDefault(foundSetting =>
                 string.Equals(foundSetting.Difficulty.ToString(), levelSetting));
 
-            Debug.Log(setting);
-            
             return setting;
         }
     }

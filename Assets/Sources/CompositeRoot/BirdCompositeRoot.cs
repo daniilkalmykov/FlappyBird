@@ -26,6 +26,7 @@ namespace Sources.CompositeRoot
         private Score _score;
 
         public IScore Score => _score;
+        public IHealth Health => _health;
 
         private void Update()
         {

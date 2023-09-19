@@ -1,6 +1,8 @@
 using System;
+using System.Runtime.CompilerServices;
 using Sources.HealthSystem;
 
+[assembly: InternalsVisibleTo("Assembly-Csharp")]
 namespace Sources.LevelSystem
 {
     internal sealed class Level
