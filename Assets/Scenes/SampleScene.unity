@@ -483,7 +483,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpSpeed: 250
-  _levelSettings: []
+  _levelSettings:
+  - {fileID: 11400000, guid: f1984c4336196d54cace100cd45ba614, type: 2}
+  - {fileID: 11400000, guid: 1ff3fe91f1cdde44d96d8b0a90d08f8f, type: 2}
+  - {fileID: 11400000, guid: b8c72d3f2a713094bbeb18180c3b4f0c, type: 2}
 --- !u!114 &436416467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,7 +1091,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minSpawnYPosition: 0
   _maxSpawnYPosition: 3
-  _levelSettings: []
+  _levelSettings:
+  - {fileID: 11400000, guid: f1984c4336196d54cace100cd45ba614, type: 2}
+  - {fileID: 11400000, guid: 1ff3fe91f1cdde44d96d8b0a90d08f8f, type: 2}
+  - {fileID: 11400000, guid: b8c72d3f2a713094bbeb18180c3b4f0c, type: 2}
 --- !u!114 &1630242546
 MonoBehaviour:
   m_ObjectHideFlags: 0
