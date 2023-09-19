@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Sources.HealthSystem;
 using Sources.InputSystem;
 using Sources.LevelSettings;
 using Sources.MovementSystem;
 using Sources.ScoreSystem;
-using Sources.Utilities;
 using Sources.Views;
 using UnityEngine;
 
