@@ -4,7 +4,7 @@ using UnityEngine;
 [assembly: InternalsVisibleTo("LevelSettings")]
 namespace Sources.GeneratorsSystem.PipesGenerator
 {
-    internal sealed class Pipe : MonoBehaviour
+    public sealed class Pipe : MonoBehaviour
     {
         
     }

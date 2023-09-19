@@ -1,4 +1,8 @@
+using System;
+using System.Collections.Generic;
+using Sources.LevelSettings;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Sources.GeneratorsSystem.PipesGenerator
 {
@@ -6,21 +10,19 @@ namespace Sources.GeneratorsSystem.PipesGenerator
     {
         [SerializeField] private float _minSpawnYPosition;
         [SerializeField] private float _maxSpawnYPosition;
-        [SerializeField] private Pipe _prefab;
-        [SerializeField] private float _delay;
-        [SerializeField] private int _count;
+        [SerializeField] private List<LevelSettings.LevelSettings> _levelSettings;
 
+        private Pipe _prefab;
+        private float _delay;
+        private int _count;
         private float _time;
         private Camera _camera;
 
         private void Start()
         {
-            _camera = Camera.main;
-            
-            for (var i = 0; i < _count; i++)
-                CreateObject(_prefab);
+            Init();
         }
-        
+
         private void Update()
         {
             _time += Time.deltaTime;
@@ -39,6 +41,23 @@ namespace Sources.GeneratorsSystem.PipesGenerator
             pipe.gameObject.SetActive(true);
             
             TryDisablePipe();
+        }
+
+        private void Init()
+        {
+            _camera = Camera.main;
+            
+            var setting = LevelSettingsGetter.Get(_levelSettings);
+
+            if (setting == null)
+                throw new ArgumentNullException();
+
+            _prefab = (Pipe)setting.Prefab;
+            _delay = setting.Delay;
+            _count = setting.PipesCount;
+            
+            for (var i = 0; i < _count; i++)
+                CreateObject(_prefab);
         }
 
         private void TryDisablePipe()

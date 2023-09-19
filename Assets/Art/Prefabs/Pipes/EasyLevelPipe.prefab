@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 4907693643862899746}
   - component: {fileID: 1719602000024641485}
   m_Layer: 0
-  m_Name: Pipe
+  m_Name: EasyLevelPipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

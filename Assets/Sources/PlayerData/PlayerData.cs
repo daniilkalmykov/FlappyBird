@@ -1,5 +1,7 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
+[assembly: InternalsVisibleTo("LevelSettings")]
 namespace Sources.PlayerData
 {
     public static class PlayerData

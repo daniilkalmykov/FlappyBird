@@ -1,7 +1,12 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Sources.HealthSystem;
 using Sources.InputSystem;
+using Sources.LevelSettings;
 using Sources.MovementSystem;
 using Sources.ScoreSystem;
+using Sources.Utilities;
 using Sources.Views;
 using UnityEngine;
 
@@ -11,9 +16,10 @@ namespace Sources.CompositeRoot
     [RequireComponent(typeof(BirdView))]
     internal sealed class BirdCompositeRoot : CompositeRoot
     {
-        [SerializeField] private float _speed;
         [SerializeField] private float _jumpSpeed;
+        [SerializeField] private List<LevelSettings.LevelSettings> _levelSettings;
         
+        private float _speed;
         private Movement _movement;
         private MobileInput _mobileInput;
         private BirdView _birdView;
@@ -40,6 +46,13 @@ namespace Sources.CompositeRoot
 
         public override void Compose()
         {
+            var setting = LevelSettingsGetter.Get(_levelSettings);
+
+            if (setting == null)
+                throw new ArgumentNullException();
+            
+            _speed = setting.PlayerSpeed;
+
             _movement = new Movement(_speed, _jumpSpeed);
             _mobileInput = new MobileInput();
             _health = new Health();

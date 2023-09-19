@@ -1,4 +1,3 @@
-using Sources.GeneratorsSystem.PipesGenerator;
 using UnityEngine;
 
 namespace Sources.LevelSettings
@@ -9,7 +8,7 @@ namespace Sources.LevelSettings
         [field: SerializeField] public float PlayerSpeed { get; private set; }
         [field: SerializeField] public float Delay { get; private set; }
         [field: SerializeField] public int PipesCount { get; private set; }
-        [field: SerializeField] public Pipe Prefab { get; private set; }
+        [field: SerializeField] public MonoBehaviour Prefab { get; private set; }
         [field: SerializeField] public Difficulty Difficulty { get; private set; }
     }
 }
