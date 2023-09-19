@@ -1,16 +1,16 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Sources.CompositeRoot
 {
     internal sealed class CompositeOrder : MonoBehaviour
     {
-        [SerializeField] private BirdCompositeRoot _birdCompositeRoot;
-        [SerializeField] private ScoreTextCompositeRoot _scoreTextCompositeRoot;
-
+        [SerializeField] private List<CompositeRoot> _compositeRoots;
+        
         private void Awake()
         {
-            _birdCompositeRoot.Compose();
-            _scoreTextCompositeRoot.Compose();
+            foreach (var compositeRoot in _compositeRoots)
+                compositeRoot.Compose();
         }
     }
 }

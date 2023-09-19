@@ -482,8 +482,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917371af481b4cfbbffbc69f97b08646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
   _jumpSpeed: 250
+  _levelSettings: []
 --- !u!114 &436416467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,9 +1088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minSpawnYPosition: 0
   _maxSpawnYPosition: 3
-  _prefab: {fileID: 1719602000024641485, guid: f414e8b2d85ec8d459074683605b3f19, type: 3}
-  _delay: 3
-  _count: 4
+  _levelSettings: []
 --- !u!114 &1630242546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,8 +1334,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f05831e56a46f8968d7894c1b9455d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _birdCompositeRoot: {fileID: 436416466}
-  _scoreTextCompositeRoot: {fileID: 1133815022}
+  _compositeRoots:
+  - {fileID: 436416466}
+  - {fileID: 1133815022}
 --- !u!1 &2095182644
 GameObject:
   m_ObjectHideFlags: 0
