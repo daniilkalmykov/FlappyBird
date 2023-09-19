@@ -8,6 +8,7 @@ namespace Sources.CompositeRoot
     internal sealed class ChooseDifficultyButtonCompositeRoot : CompositeRoot
     {
         [SerializeField] private Difficulty _difficulty;
+        [SerializeField] private CurrentDifficultyTextCompositeRoot _currentDifficultyTextCompositeRoot;
 
         private ButtonView _buttonView;
 
@@ -27,6 +28,8 @@ namespace Sources.CompositeRoot
         private void OnClicked()
         {
             PlayerData.PlayerData.SetLevelSettings(_difficulty.ToString());
+            
+            _currentDifficultyTextCompositeRoot.Show();
         }
     }
 }
