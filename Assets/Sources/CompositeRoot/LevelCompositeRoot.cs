@@ -23,6 +23,7 @@ namespace Sources.CompositeRoot
             _level.Start();
             _level.Ended += OnEnded;
 
+            Time.timeScale = 1;
             _deathScreen.gameObject.SetActive(false);
         }
 
