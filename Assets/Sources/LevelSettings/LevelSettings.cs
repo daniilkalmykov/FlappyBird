@@ -10,5 +10,13 @@ namespace Sources.LevelSettings
         [field: SerializeField] public float Delay { get; private set; }
         [field: SerializeField] public int PipesCount { get; private set; }
         [field: SerializeField] public Pipe Prefab { get; private set; }
+        [field: SerializeField] public Difficulty Difficulty { get; private set; }
+    }
+
+    internal enum Difficulty
+    {
+        Easy,
+        Medium,
+        Hard
     }
 }
